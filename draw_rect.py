@@ -12,7 +12,7 @@ class TransparentRectangle(QWidget):
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Tool)
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.setAttribute(Qt.WA_NoSystemBackground)
-        self.setWindowOpacity(0.5)
+        self.setWindowOpacity(1)
 
         # Set the size and position of the rectangle
         self.setGeometry(left, top, width, height)
@@ -22,7 +22,7 @@ class TransparentRectangle(QWidget):
 
     def paintEvent(self, event):
         painter = QPainter(self)
-        pen = QPen(Qt.red)
+        pen = QPen(QColor(0xFF, 0, 0, 0x80))
         pen.setWidth(self.border_width)
         #pen.setColor("red")
         painter.setPen(pen)
@@ -34,7 +34,7 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
 
     # Example usage: create a transparent rectangle with visible borders
-    rectangle = TransparentRectangle(100, 100, 500, 300, 2)
+    rectangle = TransparentRectangle(100, 100, 500, 300, 35)
     rectangle.show()
 
     sys.exit(app.exec_())
