@@ -48,7 +48,7 @@ class TransparentRectangle(QWidget):
         self.smooth = 2
         self.screen_width, self.screen_height = pyautogui.size()
         self.plocX, self.plocY = 0, 0
-        
+
 
     ##TO_DO
     def opacity_status(self, status=False):
